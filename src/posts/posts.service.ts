@@ -15,4 +15,7 @@ export class PostsService {
   async getPosts() {
     return this.postModel.find().exec();
   }
+  async getPostById(id: string) {
+    return this.postModel.findById(id);
+  }
 }

@@ -5,10 +5,10 @@ export type PostDocument = Post & Document;
 
 @Schema()
 export class Post {
-  @Prop()
-  postId: number;
+  @Prop({ required: true })
+  thumbnail: string;
 
-  @Prop()
+  @Prop({ required: true })
   postImage: string;
 
   @Prop({ required: true })
