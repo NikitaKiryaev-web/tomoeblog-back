@@ -5,16 +5,16 @@ import { PostsService } from './posts.service';
 
 @Controller('posts')
 export class PostsController {
-  constructor(private postsServie: PostsService) {}
+  constructor(private postsService: PostsService) {}
 
   @Get()
   async getPosts(): Promise<Blog[]> {
-    return this.postsServie.getPosts();
+    return this.postsService.getPosts();
   }
 
   @Post()
   async addPost(@Body() createPostDto: CreatePostDto) {
-    this.postsServie.addPost(createPostDto);
+    await this.postsService.addPost(createPostDto);
     return 'success';
   }
 }

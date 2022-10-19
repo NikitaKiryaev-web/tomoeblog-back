@@ -1,14 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { Post } from 'src/posts/interfaces/post.interface';
+import { InjectModel } from '@nestjs/mongoose';
+import { Post, PostDocument } from './schemas/posts.schema';
+import { Model } from 'mongoose';
+import { CreatePostDto } from './dto/createPostDto';
 
 @Injectable()
 export class PostsService {
-  private readonly posts: Post[] = [];
+  constructor(@InjectModel(Post.name) private postModel: Model<PostDocument>) {}
 
-  addPost(post: Post) {
-    this.posts.push(post);
+  async addPost(createPostDto: CreatePostDto): Promise<Post> {
+    const createdPost = new this.postModel(createPostDto);
+    return createdPost.save();
   }
-  getPosts() {
-    return this.posts;
+  async getPosts() {
+    return this.postModel.find().exec();
   }
 }
