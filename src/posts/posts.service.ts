@@ -5,7 +5,7 @@ import { Model } from 'mongoose';
 import { CreatePostDto } from './dto/createPostDto';
 
 @Injectable()
-export class PostsService {
+export class PostService {
   constructor(@InjectModel(Post.name) private postModel: Model<PostDocument>) {}
 
   async addPost(createPostDto: CreatePostDto): Promise<Post> {

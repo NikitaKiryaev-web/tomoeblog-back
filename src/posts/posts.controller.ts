@@ -1,11 +1,11 @@
 import { CreatePostDto } from './dto/createPostDto';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { Post as Blog } from 'src/posts/interfaces/post.interface';
-import { PostsService } from './posts.service';
+import { PostService } from './posts.service';
 
 @Controller('posts')
 export class PostController {
-  constructor(private postsService: PostsService) {}
+  constructor(private postsService: PostService) {}
 
   @Get()
   async getPosts(): Promise<Blog[]> {

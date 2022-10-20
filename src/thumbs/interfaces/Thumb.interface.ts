@@ -1,6 +1,8 @@
+import { Post } from '../../posts/interfaces/post.interface';
+
 export interface Thumb {
   thumb: string;
-  postId: string;
+  post: Post;
   title: string;
   text: string;
 }

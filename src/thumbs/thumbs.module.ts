@@ -11,4 +11,4 @@ import { Thumb, ThumbSchema } from './schemas/thumbs.schema';
   controllers: [ThumbController],
   providers: [ThumbService],
 })
-export class PostsModule {}
+export class ThumbModule {}

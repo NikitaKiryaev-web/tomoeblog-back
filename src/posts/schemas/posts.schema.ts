@@ -6,9 +6,6 @@ export type PostDocument = Post & Document;
 @Schema()
 export class Post {
   @Prop({ required: true })
-  thumbnail: string;
-
-  @Prop({ required: true })
   postImage: string;
 
   @Prop({ required: true })

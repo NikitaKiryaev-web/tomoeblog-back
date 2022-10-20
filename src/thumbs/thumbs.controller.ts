@@ -13,7 +13,7 @@ export class ThumbController {
   }
 
   @Post()
-  async addPost(@Body() createThumbDto: CreateThumbDto) {
+  async addThumb(@Body() createThumbDto: CreateThumbDto) {
     await this.thumbService.addThumb(createThumbDto);
     return 'success';
   }

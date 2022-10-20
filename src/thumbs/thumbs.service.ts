@@ -15,6 +15,6 @@ export class ThumbService {
     return createdPost.save();
   }
   async getThumbs() {
-    return this.thumbModel.find().exec();
+    return this.thumbModel.find().populate('post').exec();
   }
 }
